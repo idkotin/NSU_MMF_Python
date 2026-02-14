@@ -1,0 +1,12 @@
+# SSH keys
+key
+key.pub
+*.pem
+*.key
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
