@@ -1,13 +1,19 @@
 import warnings
 
-def deprecated(func):
-    def wrapper(*args, **kwargs):
-        warnings.warn("Dont use me! :(")
-        return func(*args, **kwargs)
-    return wrapper
+def deprecated(message):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            warnings.warn(message)
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
 
-@deprecated
+@deprecated('Ne nado menya ispolzovat plez')
 def f(x):
     return x
 
-print(f(1))
+@deprecated('I am good')
+def g(x):
+    return x-2
+
+print(f(1), g(5))
